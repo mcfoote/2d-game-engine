@@ -11,7 +11,7 @@ Game::~Game() {
 void Game::init(const char *title, int xpos, int ypos, int width, int height, bool fullScreen) {
 
     int flags = 0;
-    if(fullscreen) {
+    if(fullScreen) {
         flags = SDL_WINDOW_FULLSCREEN;
     }
 
@@ -25,6 +25,7 @@ void Game::init(const char *title, int xpos, int ypos, int width, int height, bo
 
         renderer = SDL_CreateRenderer(window, -1, 0);
         if(renderer) {
+            SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
             std::cout << "Renderer created!" << std::endl;
         }
 
@@ -47,16 +48,32 @@ void Game::handleEvents() {
         default: 
             break;
     }
+
 }
 
 void Game::update() {
+
+    count++;
+    std::cout << count << std::endl;
 
 }
 
 void Game::render() {
 
+    SDL_RenderClear(renderer);
+    //add objects to render
+
+    SDL_RenderPresent(renderer);
+
 }
 
 void Game::clean() {
+
+    SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer);
+
+    SDL_Quit();
+
+    std::cout << "Game resources cleaned" << std::endl;
 
 }
