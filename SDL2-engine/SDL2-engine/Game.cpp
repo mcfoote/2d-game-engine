@@ -1,5 +1,4 @@
 #include "Game.h"
-#include <iostream>
 
 Game::Game() {
 }
@@ -19,6 +18,14 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		std::cout << "Subsystems successfully initialised..." << std::endl;
 
 		window = SDL_CreateWindow(title, xpos, ypos, width, height, flags);
+		if (window) {
+			std::cout << "Window successfully created..." << std::endl;
+		}
+
+		renderer = SDL_CreateRenderer(window, -1, 0);
+		if (renderer) {
+			std::cout << "Renderer successfully created..." << std::endl;
+		}
 	}
 
 }
