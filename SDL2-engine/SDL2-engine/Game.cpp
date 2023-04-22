@@ -26,6 +26,10 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		if (renderer) {
 			std::cout << "Renderer successfully created..." << std::endl;
 		}
+
+		isRunning = true;
+	} else {
+		isRunning = false;
 	}
 
 }
