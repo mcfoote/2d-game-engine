@@ -37,7 +37,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
 		isRunning = false;
 	}
 
-	playerTexture = TextureManager::LoadTexture("assets/playertest.png", renderer);
+	player = new GameObject("assets/playertest.png", renderer);
 
 }
 
@@ -57,20 +57,14 @@ void Game::handleEvents() {
 
 void Game::update() {
 
-	count++;
-
-	destR.h = 64;
-	destR.w = 64;
-	destR.x = count;
-
-	std::cout << count << std::endl;
+	player->Update();
 
 }
 
 void Game::render() {
 
 	SDL_RenderClear(renderer);
-	SDL_RenderCopy(renderer, playerTexture, NULL, &destR);
+	player->Render();
 	SDL_RenderPresent(renderer);
 
 }

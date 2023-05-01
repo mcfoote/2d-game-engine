@@ -1,4 +1,4 @@
 ﻿  Game.cpp
-  TextureManager.cpp
+  GameObject.cpp
   Generating Code...
   SDL2-engine.vcxproj -> C:\Users\HAL-9009\Dev\SDL2-engine\SDL2-engine\x64\Debug\SDL2-engine.exe
